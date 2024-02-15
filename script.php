@@ -1,5 +1,7 @@
 <?php
 
+echo "Memulai skrip Curl...\n";
+
 // URL tujuan
 $url = 'https://pmulihan-pmblokiran-pbf3988.webnode.page/contact/';
 
@@ -55,13 +57,13 @@ $response = curl_exec($ch);
 
 // Tangkap jika ada error
 if(curl_errno($ch)){
-    echo 'Error: ' . curl_error($ch);
+    echo 'Error: ' . curl_error($ch) . "\n";
 }
 
 // Tutup Curl
 curl_close($ch);
 
 // Tampilkan response
-echo $response;
+echo "Response: $response\n";
 
 ?>
