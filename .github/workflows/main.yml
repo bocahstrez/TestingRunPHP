@@ -1,0 +1,17 @@
+name: Run Curl Script
+
+on:
+  push:
+    branches:
+      - main  # Ganti dengan nama branch yang sesuai jika perlu
+
+jobs:
+  run_curl:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Curl Script
+      run: php script.php  # Sesuaikan dengan nama file PHP Anda
