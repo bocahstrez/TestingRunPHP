@@ -26,6 +26,7 @@ curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_ENCODING, ''); // Mengizinkan Curl untuk menangani semua jenis encoding
 
 // Set header sesuai dengan yang diberikan
 $headers = array(
@@ -58,12 +59,12 @@ $response = curl_exec($ch);
 // Tangkap jika ada error
 if(curl_errno($ch)){
     echo 'Error: ' . curl_error($ch) . "\n";
+} else {
+    // Tampilkan respons hanya jika tidak ada kesalahan
+    echo "Response: \n" . $response . "\n";
 }
 
 // Tutup Curl
 curl_close($ch);
-
-// Tampilkan response
-echo "Response: $response\n";
 
 ?>
